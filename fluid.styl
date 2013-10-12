@@ -1,0 +1,53 @@
+//==============
+//  fluid.styl
+//==============
+
+// Import the fallback values
+@import 'defaults'
+
+// `x` is used as a variable name for the classes/placeholder selectors
+// since it's short.
+x = unquote('.')
+
+if not use-classes
+  x = unquote('$')
+
+// Helper mixins
+fluid-hidden()
+  visibility: hidden
+  display: none
+
+fluid-visible()
+  visibility: visible
+  display: block
+
+// Generate the widths
+//
+// 1. If the name of the breakpoint is `default`, just generate the widths
+//    without a specific breakpoint name (ie: `.one-whole`).
+//
+// 2. In all other cases, generate the widths with the breakpoint name in
+//    question in front of them (ie: `.palm--one-whole`).
+//
+// 3. Generate the helper classes (ie: `hidden`, `visible` or `both`)
+//    if they're enabled.
+fluid-widths(namespace, widths, helpers)
+  if namespace == 'default' // [1]
+    for width in widths
+      {x}{width[0]}
+        width: width[1]
+  else // [2]
+    for width in widths 
+      {x}{namespace}--{width[0]}
+        width: width[1]
+    if helpers == 'hidden' // [3]
+      {x}{namespace}--hidden
+        fluid-hidden()
+    else if helpers == 'visible'
+      {x}{namespace}--visible
+        fluid-visible()
+    else if helpers == 'both'
+      {x}{namespace}--hidden
+        fluid-hidden()
+      {x}{namespace}--visible
+        fluid-visible()

@@ -1,0 +1,39 @@
+//-------------
+//  Variables
+//-------------
+
+// The type of classes used
+//
+// If this is set to `true`, classes will be used in the generated code
+// instead of placeholder selectors.
+use-classes = true unless use-classes is defined
+
+// Breakpoints
+//
+// These are regular variables and can be rename and modified,
+// although I strongly recommended the use of the original name since
+// it's suitable.
+palm = 'screen and (max-width: 480px)' unless palm is defined
+lap = 'screen and (min-width: 481px) and (max-width: 1023px)' unless lap is defined
+lap-and-up = 'screen and (min-width: 481px)' unless lap-and-up is defined
+desk = 'screen and (min-width: 1024px)' unless desk is defined
+
+// The widths used as defaults
+//
+// This is a regular variable and can be renamed and modified,
+// although I strongly recommended the use of the original name since
+// it's suitable.
+widths = ('one-whole' 100%),
+         ('nine-tenths' 90%),
+         ('four-fifths' 80%),
+         ('three-quarter' 75%),
+         ('seven-tenths' 70%),
+         ('two-thirds' 66.666%),
+         ('three-fifths' 60%),
+         ('one-half' 50%),
+         ('two-fifths' 40%),
+         ('one-third' 33.333%),
+         ('three-tenths' 30%),
+         ('one-quarter' 25%),
+         ('one-fifth' 20%),
+         ('one-tenth' 10%) unless widths is defined
